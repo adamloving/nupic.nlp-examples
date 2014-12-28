@@ -24,6 +24,10 @@ Before you have the NLTK text corpus available for local processing, you need to
     >>> import nltk
     >>> nltk.download()
 
+If you get `ImportError: No module named nltk`, set your PYTHONPATH.
+
+    $ export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
+
 This will bring up a GUI window for you to choose what texts to download. Choose them all and proceed. This will take a few minutes.
 
 ### Environment
