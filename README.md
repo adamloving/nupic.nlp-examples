@@ -4,7 +4,7 @@ This repo contains my Natural Language Processing (NLP) experiments with [NuPIC]
 
 ## Requirements
 
-For some experiments, you'll need an app ID and app key from [CEPT](https://cept.3scale.net/) for the usage of their API to get word SDRs and decode SDRs back into words. 
+For some experiments, you'll need an app ID and app key from [Cortical.io](http://www.cortical.io/developers_apikey.html) for the usage of their API to get word SDRs and decode SDRs back into words. 
 
 You'll also need 35MB (or more depending on what individual experiments you run) of space to store the text corpus from the NLTK and SDRs from CEPT.
 
