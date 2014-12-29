@@ -87,9 +87,6 @@ class Association_Runner(object):
       term2 = strip_punctuation(triples[count][1]).lower()
       term3 = strip_punctuation(triples[count][2]).lower()
       fetch_result = (count >= self.prediction_start)
-      if term1 == "fox":
-        print
-        prompt("But what does the fox eat?? (Press 'return' to see!)\n")
       try:
         term2_prediction = self._feed_term(term1, fetch_result, subsample=True)
         term3_prediction = self._feed_term(term2, fetch_result, subsample=True)
