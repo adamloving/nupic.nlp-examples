@@ -6,12 +6,38 @@ from nltk.corpus import (gutenberg,
 from nltk.corpus.reader import NOUN
 from nltk.corpus.reader import PlaintextCorpusReader
 from nltk.tag import pos_tag
-from nltk.tag.simplify import simplify_wsj_tag
 from nltk.tokenize import (word_tokenize, 
                           wordpunct_tokenize, 
                           sent_tokenize)
 from tags import DESCRIPTIONS as tag_descriptions
 
+wsj_mapping = {
+    '-lrb-': '(',   '-rrb-': ')',    '-lsb-': '(',
+    '-rsb-': ')',   '-lcb-': '(',    '-rcb-': ')',
+    '-none-': '',   'cc': 'CNJ',     'cd': 'NUM',
+    'dt': 'DET',    'ex': 'EX',      'fw': 'FW', # existential "there", foreign word
+    'in': 'P',      'jj': 'ADJ',     'jjr': 'ADJ',
+    'jjs': 'ADJ',   'ls': 'L',       'md': 'MOD',  # list item marker
+    'nn': 'N',      'nnp': 'NP',     'nnps': 'NP',
+    'nns': 'N',     'pdt': 'DET',    'pos': '',
+    'prp': 'PRO',   'prp$': 'PRO',   'rb': 'ADV',
+    'rbr': 'ADV',   'rbs': 'ADV',    'rp': 'PRO',
+    'sym': 'S',     'to': 'TO',      'uh': 'UH',
+    'vb': 'V',      'vbd': 'VD',     'vbg': 'VG',
+    'vbn': 'VN',    'vbp': 'V',      'vbz': 'V',
+    'wdt': 'WH',    'wp': 'WH',      'wp$': 'WH',
+    'wrb': 'WH',
+    'bes': 'V',     'hvs': 'V',     'prp^vbp': 'PRO'   # additions for NPS Chat corpus
+    }
+
+def simplify_wsj_tag(tag):
+    if tag and tag[0] == '^':
+        tag = tag[1:]
+    try:
+        tag = wsj_mapping[tag.lower()]
+    except KeyError:
+        pass
+    return tag.upper()
 
 def plural(word):
   if word.endswith('y'):
