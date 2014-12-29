@@ -4,6 +4,8 @@ This repo contains my Natural Language Processing (NLP) experiments with [NuPIC]
 
 ## Requirements
 
+First, follow the [NuPic install instructions](https://github.com/numenta/nupic/wiki/Installing-and-Building-NuPIC)
+
 For some experiments, you'll need an app ID and app key from [Cortical.io](http://www.cortical.io/developers_apikey.html) for the usage of their API to get word SDRs and decode SDRs back into words. 
 
 You'll also need 35MB (or more depending on what individual experiments you run) of space to store the text corpus from the NLTK and SDRs from CEPT.
@@ -15,6 +17,10 @@ You'll also need 35MB (or more depending on what individual experiments you run)
     pip install git+git://github.com/numenta/pycept.git
     pip install pyyaml
     pip install nltk
+    pip install numpy
+
+
+clone [nupic](https://github.com/numenta/nupic) and [nupic.research](https://github.com/numenta/nupic.research) and add them to your PYTHONPATH so that the examples project can reference them.
 
 ### NLTK Download
 
@@ -30,11 +36,12 @@ If you get `ImportError: No module named nltk`, set your PYTHONPATH.
 
 This will bring up a GUI window for you to choose what texts to download. Choose them all and proceed. This will take a few minutes.
 
+Also, you'll want the nupic and nupic.research project paths on your PYTHONPATH if you see problems importing from them (for example, for TP10X2).
+
 ### Environment
 
-Set up the following environment variables to contain your CEPT API app id and key:
+Set up the following environment variables to contain your Cortical.io app key:
 
-    export CEPT_APP_ID=<your_id>
     export CEPT_APP_KEY=<your_key>
 
 ## Caching
