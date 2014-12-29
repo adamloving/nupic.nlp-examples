@@ -54,7 +54,9 @@ class Association_Runner(object):
         pairs += pairs
       term1 = strip_punctuation(pairs[count][0]).lower()
       term2 = strip_punctuation(pairs[count][1]).lower()
-      fetch_result = (count >= self.prediction_start)
+
+      # true after first triplet (prediction_start is 1)
+      fetch_result = (count >= self.prediction_start) 
       try:
         term2_prediction = self._feed_term(term1, fetch_result)
         self._feed_term(term2)
